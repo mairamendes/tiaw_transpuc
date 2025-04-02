@@ -1,8 +1,6 @@
 
 # `TRANSPUC`  
 
-[Acessar o Site](./src/HomePage/index.html)
-
 `Trabalho Interdisciplinar - Aplicacões Web`
 
 `Análise e Desenvolvimento de Sistemas`
@@ -33,8 +31,6 @@ Os membros do grupo são:
 Esta pasta arquiva a documentação dos projetos.
 
 ## Pasta src
-
-[Acessar o Site](./src/HomePage/index.html)
 
 Este diretório armazena o código fonte do projeto e adota uma hierarquia
 básica de projetos Web simples, que utilizam as tecnologias HTML, CSS e
