@@ -1,13 +1,12 @@
 
 # `TRANSPUC`  
 
+[Acessar o Site](./src/HomePage/index.html)
+
 `Trabalho Interdisciplinar - Aplicacões Web`
-
 `Análise e Desenvolvimento de Sistemas`
-
 `SEGUNDO SEMESTRE` 
 
-`OBJETIVO ODS:` > Inclua os numeros e a descrição do(s) objetivo(s) ODS da ONU que o Projeto vai atender. 
 
 ## Participantes
 
@@ -32,6 +31,8 @@ Os membros do grupo são:
 Esta pasta arquiva a documentação dos projetos.
 
 ## Pasta src
+
+[Acessar o Site](./src/HomePage/index.html)
 
 Este diretório armazena o código fonte do projeto e adota uma hierarquia
 básica de projetos Web simples, que utilizam as tecnologias HTML, CSS e
