@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: "Poppins";
+}
+
+body {
+    background-image: linear-gradient(45deg, #83889c, #DDE3FD);
+    min-height: 100vh;
+    min-width: 100vw;
+    background-repeat: no-repeat;
+    overflow-x: hidden; /* Previne barra de rolagem horizontal */
+}
+
+main {
+    height: 100%;
+}
+
+header {
+    background-color: #142C59;
+    height: 70px;
+    width: 100vw; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
+.itens-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px; 
+    height: 100%;
+}
+
+.container {
+    padding-top: 90px; 
+}
+
+img {
+    max-height: 40px; 
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.boas-vindas{
+    text-align: center;
+}
+
+.accordions .accordion-item {
+    margin-bottom: 15px; 
+    
+}
+
+.accordions {
+    margin-top: 20px; 
+    
+}
+
+.accordion-button{
+    background-color: #142C59;
+}
+.accordion-body {
+    background-color: #DDE3FD;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.iframe-estilizado {
+    width: 100%;
+    height: 100vh; /* Ocupa toda a altura da janela */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Para telas menores */
+@media (max-width: 768px) {
+    .iframe-estilizado {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .iframe-estilizado {
+        height: 300px;
+    }
+}
+

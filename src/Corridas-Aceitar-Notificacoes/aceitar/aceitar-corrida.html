@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceitar Corrida</title>
+    <link rel="stylesheet" href="/src/Corridas-Aceitar-Notificacoes/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+    <div id="detalhesCorrida">
+        <p><strong>Partida:</strong> </p>
+        <p><strong>Destino:</strong> </p>
+        <p><strong>Data:</strong> </p>
+        <p><strong>Horário:</strong> </p>
+    </div>
+
+    <button id="btnAceitar" class="btn aceitar">Aceitar Corrida</button>
+    <button id="btnFinalizar" class="btn finalizar" style="display: none;">Finalizar Corrida</button>
+</div>
+    <div id="notificacao"></div>
+
+    <script src="/src/Corridas-Aceitar-Notificacoes/js/app.js"></script>
+    <script>
+        function openChat(phoneNumber) {
+          const url = `https://wa.me/${phoneNumber}?text=Olá!%20Gostaria%20de%20confirmar%20a%20carona.`;
+          window.open(url, '_blank');
+        }
+      
+        document.getElementById('btnAceitar').addEventListener('click', function() {
+          const phoneNumber = '5591999999999'; // Substitua por um número dinâmico ou variável
+          openChat(phoneNumber);
+        });
+      </script>
+</body>
+</html>

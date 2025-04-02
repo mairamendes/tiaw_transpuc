@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(45deg, #83889c, #DDE3FD);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+}
+
+header {
+    background-color: #142C59;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.itens-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+}
+
+.itens-cabecalho img {
+    max-height: 50px;
+    object-fit: contain;
+}
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.botao-login {
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    background-color: #137DC5;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    padding: 8px;
+    display: inline-block;
+    text-align: center;
+}
+
+.botao-login a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.botao-login:hover {
+    background-color: #1066a0;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.secoes {
+    width: 100%;
+    padding-top: 90px;
+}
+
+.secao1,
+.secao2,
+.secao3 {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.secao1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.secao1 img {
+    max-width: 600px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.secao1 p {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 20px;
+    color: #142C59;
+}
+
+.secao2 {
+    background-color: #142C59;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.secao2 h1 {
+    color: #DDE3FD;
+    font-weight: 700;
+    font-weight: bold;
+}
+
+.secao2 p {
+    background-image: linear-gradient(45deg, #83889c, #DDE3FD);
+    color: #142C59;
+    border-radius: 20px;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.secao3 h1 {
+    text-align: center;
+    color: #142C59;
+    font-weight: 700;
+    font-weight: bold;
+}
+
+.secao3 {
+    text-align: center;
+    padding: 20px;
+}
+
+.van-card {
+    display: flex;
+    align-items: center;
+    background: #142C59;
+    border-radius: 10px;
+    color: white;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+.van-image {
+    width: 120px;
+    height: auto;
+    border-radius: 100%;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+.van-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.van-info ul li {
+    margin-bottom: 8px;
+}
+
+.carousel-inner {
+    padding: 10px;
+}
+
+footer {
+    background-color: #142C59;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+footer div {
+    margin: 5px;
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+@media screen and (max-width: 768px) {
+    .itens-cabecalho {
+        flex-direction: row;
+    }
+
+    .secao1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .secao1 img {
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .van-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .van-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .van-info ul {
+        text-align: center;
+        font-size: 13px;
+    }
+
+    footer {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .van-card {
+        width: 95%;
+        padding: 8px;
+    }
+
+    .van-info ul {
+        font-size: 12px;
+    }
+}

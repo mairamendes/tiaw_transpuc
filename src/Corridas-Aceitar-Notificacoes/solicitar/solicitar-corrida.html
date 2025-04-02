@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Corrida</title>
+    <link rel="stylesheet" href="/src/Corridas-Aceitar-Notificacoes/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="form-container p-3">
+        <label for="partida">Partida:</label>
+        <input type="text" id="partida" placeholder="Digite o local de partida">
+
+        <label for="cep">CEP do Destino:</label>
+        <div style="display: flex; align-items: center;">
+            <input type="text" id="cep" placeholder="Digite o CEP" maxlength="9" pattern="\d{5}-\d{3}" required>
+            <button id="btnBuscarCep" style="margin-left: 10px;">Buscar Endereço</button>
+        </div>
+
+        <label for="destino">Endereço do Destino:</label>
+        <input type="text" id="destino" placeholder="Digite o endereço do destino">
+
+        <!-- Novo campo para número do local -->
+        <label for="numeroLocal">Número do Local:</label>
+        <input type="text" id="numeroLocal" placeholder="Digite o número do local">
+
+        <label for="data">Data:</label>
+        <input type="date" id="data">
+
+        <label for="horario">Horário:</label>
+        <input type="time" id="horario">
+
+        <button id="btnSolicitar" class="btn solicitar">Solicitar Corrida</button>
+    </div>
+
+    <div id="notificacao"></div>
+
+    <script>
+        // Função para consultar o CEP e preencher a rua e o bairro
+        async function consultarCep(cep) {
+            try {
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const data = await response.json();
+
+                if (data.erro) {
+                    exibirNotificacao('CEP não encontrado.', 'vermelho');
+                } else {
+                    // Preencher o campo "destino" apenas com o logradouro (rua) e bairro
+                    document.getElementById('destino').value = `${data.logradouro}, ${data.bairro}`;
+                }
+            } catch (error) {
+                exibirNotificacao('Erro na consulta do CEP. Tente novamente.', 'vermelho');
+            }
+        }
+
+        // Função para exibir notificações
+        function exibirNotificacao(mensagem, cor) {
+            const notificacao = document.getElementById('notificacao');
+            notificacao.textContent = mensagem;
+            notificacao.style.backgroundColor = cor === "verde" ? "#28a745" : cor === "vermelho" ? "#dc3545" : "#ffc107";
+            notificacao.style.display = "block";
+            setTimeout(function () {
+                notificacao.style.display = "none";
+            }, 3000); // A notificação desaparece após 3 segundos
+        }
+
+        // Lógica para o botão de buscar o CEP
+        document.getElementById('btnBuscarCep').addEventListener('click', function () {
+            const cep = document.getElementById('cep').value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            if (cep.length === 8) { // Verifica se o CEP tem 8 dígitos
+                consultarCep(cep);
+            } else {
+                exibirNotificacao('CEP inválido. Deve conter 8 dígitos.', 'vermelho');
+            }
+        });
+
+        // Lógica para o botão de Solicitar Corrida
+        const btnSolicitar = document.getElementById('btnSolicitar');
+        if (btnSolicitar) {
+            btnSolicitar.addEventListener('click', function () {
+                const partida = document.getElementById('partida').value;
+                const destino = document.getElementById('destino').value;
+                const data = document.getElementById('data').value;
+                const horario = document.getElementById('horario').value;
+
+                // Verificar se todos os campos foram preenchidos
+                if (partida && destino && data && horario) {
+                    // Salvar as informações da corrida no localStorage
+                    const corrida = { partida, destino, data, horario };
+                    salvarCorrida(corrida);
+
+                    // Exibir notificação
+                    exibirNotificacao("Corrida solicitada com sucesso!", "verde");
+                } else {
+                    exibirNotificacao("Por favor, preencha todos os campos.", "vermelho");
+                }
+            });
+        }
+        
+
+        // Função para salvar os dados da corrida no localStorage
+        function salvarCorrida(corrida) {
+            localStorage.setItem('corrida', JSON.stringify(corrida));
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransPuc - Gerenciamento de Termos de Uso</title>
+    <link rel="stylesheet" href="/src/TermosdeUso/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Gerenciamento de Termos de Uso</h1>
+            
+            <!-- Formulário de Criação de Novo Termo -->
+            <div class="termos-formulario">
+                <form id="form-termos">
+                    <div class="formulario-grupo">
+                        <label for="termo-titulo" class="formulario-label">Título do Termo:</label>
+                        <input type="text" id="termo-titulo" class="form-control" required>
+                    </div>
+                    <div class="formulario-grupo">
+                        <label for="termo-descricao" class="formulario-label">Descrição:</label>
+                        <textarea id="termo-descricao" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="botao">
+                        <button type="button" class="botao-cadastro" onclick="adicionarTermo()">Adicionar Termo</button>
+                        <button type="button" class="botao-cadastro" onclick="atualizarTermo()" id="botao-editar" style="display: none;">Atualizar Termo</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Lista de Termos (READ) -->
+            <div class="termos-lista">
+                <h2 class="subtitulo">Lista de Termos de Uso</h2>
+                <ul id="lista-termos"></ul>
+            </div>            
+        </div>
+    </main>
+
+    <script>
+        let termoEditando = null;  // Variável global para armazenar o termo que está sendo editado
+
+        // Função para criar/adicionar um novo termo
+        function adicionarTermo() {
+            const titulo = document.getElementById('termo-titulo').value;
+            const descricao = document.getElementById('termo-descricao').value;
+
+            if (titulo && descricao) {
+                const novoTermo = { id: Date.now(), titulo, descricao };
+                let termos = JSON.parse(localStorage.getItem('termos')) || []; // Recupera os termos
+                termos.push(novoTermo);
+                localStorage.setItem('termos', JSON.stringify(termos)); // Salva os termos no localStorage
+                atualizarLista();
+                document.getElementById('form-termos').reset();
+            }
+        }
+
+        // Função para editar um termo
+        function editarTermo(id) {
+            let termos = JSON.parse(localStorage.getItem('termos')) || [];
+            const termo = termos.find(t => t.id === id);
+
+            if (termo) {
+                termoEditando = termo;  // Armazena o termo que está sendo editado
+                document.getElementById('termo-titulo').value = termo.titulo;
+                document.getElementById('termo-descricao').value = termo.descricao;
+                document.getElementById('botao-editar').style.display = 'inline-block';  // Exibe o botão de editar
+                document.querySelector('.botao-cadastro').style.display = 'none';  // Esconde o botão de adicionar
+            }
+        }
+
+        // Função para atualizar um termo editado
+        function atualizarTermo() {
+            const titulo = document.getElementById('termo-titulo').value;
+            const descricao = document.getElementById('termo-descricao').value;
+
+            if (termoEditando && titulo && descricao) {
+                termoEditando.titulo = titulo;
+                termoEditando.descricao = descricao;
+
+                let termos = JSON.parse(localStorage.getItem('termos')) || [];
+                termos = termos.map(t => t.id === termoEditando.id ? termoEditando : t); // Atualiza o termo editado
+                localStorage.setItem('termos', JSON.stringify(termos)); // Salva novamente no localStorage
+                atualizarLista();
+
+                // Reseta o formulário e volta os botões ao estado original
+                document.getElementById('form-termos').reset();
+                termoEditando = null;
+                document.getElementById('botao-editar').style.display = 'none';
+                document.querySelector('.botao-cadastro').style.display = 'inline-block';
+            }
+        }
+
+        // Função para ler/exibir a lista de termos
+        function atualizarLista() {
+            const lista = document.getElementById('lista-termos');
+            lista.innerHTML = '';
+            const termos = JSON.parse(localStorage.getItem('termos')) || [];
+            termos.forEach((termo) => {
+                const item = document.createElement('li');
+                item.classList.add('termos-item');
+                item.innerHTML = `
+                    <strong>${termo.titulo}</strong>: ${termo.descricao}
+                    <span>
+                        <button onclick="editarTermo(${termo.id})" class="termos-botao btn btn-warning btn-sm">Editar</button>
+                        <button onclick="deletarTermo(${termo.id})" class="termos-botao btn btn-danger btn-sm">Excluir</button>
+                    </span>
+                `;
+                lista.appendChild(item);
+            });
+        }
+
+        // Função para excluir um termo
+        function deletarTermo(id) {
+            let termos = JSON.parse(localStorage.getItem('termos')) || [];
+            termos = termos.filter((t) => t.id !== id);
+            localStorage.setItem('termos', JSON.stringify(termos));
+            atualizarLista();
+        }
+
+        // Carrega os termos ao abrir a página
+        window.onload = atualizarLista;
+    </script>
+</body>
+</html>

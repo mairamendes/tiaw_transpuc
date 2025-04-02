@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(45deg, #0d1d3a, #DDE3FD);
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: #0d1d3a;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    color: #DDE3FD;
+}
+.container h1{
+    font-weight: bold;
+    color: #DDE3FD;
+    text-align: center; 
+    padding-bottom: 20px;
+}
+.container h2{
+    font-weight: 800;
+    color: #DDE3FD;
+    text-align: center;
+}
+
+.formulario-grupo {
+    margin-bottom: 15px;
+}
+
+.formulario-grupo label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.botao-cadastro:hover {
+    background-color: #0c5383;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background-color: #DDE3FD;
+    color: #0d1d3a;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.card button {
+    margin: 5px;
+    width: 45%;
+}
+
+.modal-content {
+    background-color: #0d1d3a;
+    color: #DDE3FD;
+}
+
+#modalEditar .modal-content{
+    background-color: #0d1d3a;
+    width: auto;
+}   
+
+.modal-header h4{
+    font-weight:800;
+    color:#DDE3FD ;
+}
+
+.modal-body label{
+    font-weight:800;
+    color:#DDE3FD ;
+}
+
+@media (max-width: 768px) {
+    .formulario-grupo {
+        width: 100%;
+    }
+
+    .botao-cadastro {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 22px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+}

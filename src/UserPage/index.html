@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransPuc - Home</title>
+    <link rel="stylesheet" href="/src/UserPage/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/316a68a540.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <header>
+                <div class="itens-cabecalho">
+                    <img src="/src/UserPage/img/LOGO.svg" alt="">
+                    
+                    <button id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i></button>
+                </div>
+            </header>
+            <div class="boas-vindas">
+                <h2>Bem Vindo(a), <span id="usuarioNome"></span>!</h2>
+            </div>
+            <div class="accordions">
+                <div class="accordion " id="accordionExample">
+                    <div class="accordion-item">
+                        <h1 class="accordion-header">
+                            <button class="accordion-button" style="background-color: #142C59; color: #DDE3FD;"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="false" aria-controls="collapseOne">
+                                Solicitar Corrida
+                            </button>
+                        </h1>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <iframe src="/src/Corridas-Aceitar-Notificacoes/solicitar/solicitar-corrida.html"
+                                    class="iframe-estilizado">
+                                    Seu navegador não suporta iframes.
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed"
+                                style="background-color: #142C59; color: #DDE3FD;" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                Minhas corridas
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <iframe src="../Corridas-Aceitar-Notificacoes/editar/editar-cancelar-corrida.html"
+                                class="iframe-estilizado">
+                                Seu navegador não suporta iframes.
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed"
+                                style="background-color: #142C59; color: #DDE3FD;" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Cadastrar Carro
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <iframe src="/src/CadastroCarro/index.html" class="iframe-estilizado">
+                                    Seu navegador não suporta iframes.
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed"
+                                style="background-color: #142C59; color: #DDE3FD;" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                aria-controls="collapseFour">
+                                Corridas Disponiveis
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <iframe src="../Corridas-Aceitar-Notificacoes/aceitar/aceitar-corrida.html"
+                                    class="iframe-estilizado">
+                                    Seu navegador não suporta iframes.
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" style="background-color: #142C59; color: #DDE3FD"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                aria-expanded="false" aria-controls="collapseFive">
+                                Reclame Aqui!
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <iframe src="/src/tela_relatorio_ocorrencia_2.0/index.html" class="iframe-estilizado">
+                                    Seu navegador não suporta iframes.
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        // Função para exibir o nome do usuário
+        window.onload = function() {
+            const usuario = JSON.parse(localStorage.getItem('usuario'));
+            if (usuario) {
+                document.getElementById('usuarioNome').textContent = `${usuario.nome} ${usuario.sobrenome}`;
+            }
+        };
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            // Limpar os dados do localStorage
+            localStorage.removeItem('usuario');
+            window.location.href = '/src/Login/index.html';
+            alert('Você foi deslogado com sucesso!');
+        });
+
+    </script>
+</body>
+
+</html>

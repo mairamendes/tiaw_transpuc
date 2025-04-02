@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclame Aqui</title>
+    <link rel="stylesheet" href="/src/tela_relatorio_ocorrencia_2.0/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Reclame aqui</h2>
+        <form id="reclamacaoForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="reclamacao">Deixe sua reclamação aqui:</label>
+            <textarea id="reclamacao" name="reclamacao" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <h3>Reclamações:</h3>
+        <div id="reclamacoesList"></div>
+    </div>
+    <!--
+    <footer>
+        <p>Atendimento ao Cliente:<br>
+            Email: contato@empresa.com<br>
+            Telefone: (31) 1234-5678</p>
+        <p>© 2024 TransPuc. Todos os direitos reservados.</p>
+    </footer>
+    -->
+    <script src="/src/tela_relatorio_ocorrencia_2.0/script.js"></script>
+</body>
+</html>

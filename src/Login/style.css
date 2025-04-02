@@ -1,0 +1,94 @@
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+body{
+    background-image: linear-gradient(45deg, #000000, #142C59);
+    min-height: 100vh;
+    min-width: 100vw;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+
+    height: 100%; 
+}
+
+.botao-voltar{
+    font-size: 15px; /* Aumenta o tamanho do ícone */
+    transform: scale(1.2);
+    color: #142C59; 
+    font-weight: 900; 
+    padding-top:5px ;
+    padding: 10px; 
+    cursor: pointer; 
+    margin-left: auto;
+}
+
+
+img{
+    padding-bottom: 20px;
+    width: 250px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    background-color: #DDE3FD;
+    border-radius: 20px;
+    padding: 0 40px 40px ;    
+}
+
+.formulario-grupo{
+    padding: 5px;
+}
+
+.formulario-grupo label{
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+    color: #142C59;
+}
+
+.botao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.botao-login{
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    background-color: #142C59;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    padding: 8px;
+}
+
+.botao-login:hover{
+    background-color: #0d1d3a;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.links a{
+    color: #0d1d3a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight:500;
+}

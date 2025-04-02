@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+body{
+    background-image: linear-gradient(45deg, #0d1d3a, #DDE3FD);
+    min-height: 100vh;
+    min-width: 100vw;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    height: 100%; 
+}
+
+.container h1{
+    font-weight: bold;
+    color:#DDE3FD ;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    background-color: #0d1d3a;
+    border-radius: 20px;
+    padding: 20px;  
+}
+
+.formulario-grupo{
+    width: 400px;
+    padding: 5px;
+}
+
+.formulario-grupo label{
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+    color: #DDE3FD;
+}
+
+
+.botao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 10px;
+}
+
+.botao-cadastro{
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    background-color: #137DC5;
+    color: #DDE3FD;
+    border-radius: 10px;
+    width: 150px;
+    padding: 8px;
+}
+
+.botao-cadastro:hover{
+    background-color: #0c5383;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+}
+
+.links a{
+    padding: 15px;
+    font-size: 15px;
+    color: #138ee0;
+    display: inline-block;
+    text-align: center;
+    font-weight:500;
+}
+
+.termos-texto p, .termos-texto ul, .termos-texto li {
+    color: #DDE3FD;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.termos-texto a {
+    color: #138ee0;
+    text-decoration: underline;
+}
+
+.formulario-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #DDE3FD;
+    padding-left: 10px; /* Para espaçar o texto do checkbox */
+}
+
+.subtitulo {
+    font-size: 24px; /* Tamanho de fonte adequado */
+    font-weight: bold;
+    color: #DDE3FD; /* Segue a cor do esquema de cores */
+    margin-bottom: 15px; /* Espaçamento para separar do conteúdo abaixo */
+    text-align: center; /* Alinhamento centralizado */
+}
+
+/* Estilo para os itens da lista */
+.termos-item {
+    background-color: #1a2a47;
+    color: #DDE3FD;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.termos-item strong {
+    font-size: 18px;
+    color: #DDE3FD;
+}
+
+/* Estilo para os botões de ação (Editar e Excluir) */
+.termos-botao {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #DDE3FD;
+    cursor: pointer;
+}
+
+.btn-warning {
+    background-color: #F2C94C;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #EB5757;
+    border: none;
+}
+
+.btn-warning:hover, .btn-danger:hover {
+    opacity: 0.8;
+}

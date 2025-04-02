@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar/Cancelar Corrida</title>
+    <link rel="stylesheet" href="/src/Corridas-Aceitar-Notificacoes/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div >
+    <div id="detalhesCorrida">
+        <p><strong>Partida:</strong> </p>
+        <p><strong>Destino:</strong> </p>
+        <p><strong>Data:</strong> </p>
+        <p><strong>Horário:</strong> </p>
+    </div>
+    <button id="btnEditar" class="btn salvar">Editar Corrida</button>
+    <button id="btnCancelar" class="btn cancelar">Cancelar Corrida</button>
+</div>
+
+    <div id="modalEdicao" class="modal">
+        <div class="modal-content">
+            <label for="modalPartida">Partida:</label>
+            <input type="text" id="modalPartida">
+            <label for="modalDestino">Destino:</label>
+            <input type="text" id="modalDestino">
+            <label for="modalData">Data:</label>
+            <input type="date" id="modalData">
+            <label for="modalHorario">Horário:</label>
+            <input type="time" id="modalHorario">
+            <button id="btnSalvarModal" class="btn salvar">Salvar Alterações</button>
+        </div>
+    </div>
+
+    <div id="notificacao"></div>
+
+    <script src="/src/Corridas-Aceitar-Notificacoes/js/app.js"></script>
+</body>
+</html>
+
