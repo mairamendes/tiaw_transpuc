@@ -32,7 +32,7 @@ Esta pasta arquiva a documentação dos projetos.
 
 ## Pasta src 
 
-[Acessar o arquivo principal do Site](./src/HomePage/index.html)
+
 
 Este diretório armazena o código fonte do projeto e adota uma hierarquia
 básica de projetos Web simples, que utilizam as tecnologias HTML, CSS e
